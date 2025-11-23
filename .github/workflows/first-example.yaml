@@ -8,14 +8,15 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v6
         
-      - name: list and read files
+      - name: List and Read files
         run: |
-            echo "A toast to my first Github action 🥂"
-            ls -ltra
-            cat README.md
+          echo "A toast to my first Github action 🥂"
+          ls -ltra
+          cat README.md
             
-      - name: generate ASCII artwork
-        uses: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
+      - name: Generate ASCII Artwork
+        run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
+        
       # - name: list files
       #   run: ls
         
