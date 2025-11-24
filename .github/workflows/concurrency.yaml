@@ -2,8 +2,6 @@ name: Exploring Concurrency
 on:
   workflow_dispatch:
 
-  # schedule:
-  #   - cron: "*/1 * * * *"
 env:
   CONTAINER_REGISTRY: docker.io
   IMAGE_NAME: github-actions-ngx
@@ -21,6 +19,9 @@ jobs:
         run: echo docker push $CONTAINER_REGISTRY/${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest
   deploy:
     needs: docker
+    concurrency:
+      group: production-deployment
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
       - name: Docker run
