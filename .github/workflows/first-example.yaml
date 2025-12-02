@@ -1,5 +1,5 @@
 name: My First Workflow
-on: 
+on:
   - push
 jobs:
   first_job:
@@ -7,16 +7,15 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v6
-        
+
       - name: List and Read files
         run: |
           echo "A toast to my first Github action 🥂"
           ls -ltra
           cat README.md
-            
+
       # - name: list files
       #   run: ls
-        
+
       # - name: read file
       #   run: cat README.md
-
